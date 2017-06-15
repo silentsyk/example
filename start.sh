@@ -24,4 +24,6 @@ sed -i "s/example/$project_name/g" `find . -name '*Mapper.xml'`
 
 #新的项目
 mkdir ../$project_name
-cp -r `ls -a|grep -v .git|xargs` ../$project_name
+cp -r `ls -A|grep -v ".git$"|xargs` ../$project_name
+git checkout .
+rm -rf "$project_name"*
