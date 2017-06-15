@@ -14,9 +14,14 @@ mvn clean
 find . -name 'example-server' -printf %h\\n | xargs -i{} mv {}/example-server {}/$project_name-server
 find . -name 'example-service' -printf %h\\n | xargs -i{} mv {}/example-service {}/$project_name-service
 find . -name 'example-api' -printf %h\\n | xargs -i{} mv {}/example-api {}/$project_name-api
+#packge
 find . -name 'example' -printf %h\\n | xargs -i{} mv {}/example {}/$project_name
+#conetent 
 sed -i "s/example/$project_name/g" `find . -name '*.properties'`
 sed -i "s/example/$project_name/g" `find . -name '*.java'`
 sed -i "s/example/$project_name/g" `find . -name 'pom.xml'`
 sed -i "s/example/$project_name/g" `find . -name '*Mapper.xml'`
 
+#新的项目
+mkdir ../$project_name
+cp -r `ls -a|grep -v .git|xargs` ../$project_name
