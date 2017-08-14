@@ -17,10 +17,10 @@ find . -name 'example-api' -printf %h\\n | xargs -i{} mv {}/example-api {}/$proj
 #packge
 find . -name 'example' -printf %h\\n | xargs -i{} mv {}/example {}/$project_name
 #conetent 
-sed -i "s/example/$project_name/g" `find . -name '*.properties'`
-sed -i "s/example/$project_name/g" `find . -name '*.java'`
-sed -i "s/example/$project_name/g" `find . -name 'pom.xml'`
-sed -i "s/example/$project_name/g" `find . -name '*Mapper.xml'`
+sed -i '' "s/example/$project_name/g" `find . -name '*.properties'`
+sed -i '' "s/example/$project_name/g" `find . -name '*.java'`
+sed -i '' "s/example/$project_name/g" `find . -name 'pom.xml'`
+sed -i '' "s/example/$project_name/g" `find . -name '*Mapper.xml'`
 
 #新的项目
 mkdir ../$project_name
