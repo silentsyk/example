@@ -11,11 +11,15 @@ mvn clean
 
 #rename packageName
 #module
-find . -name 'example-server' -printf %h\\n | xargs -i{} mv {}/example-server {}/$project_name-server
-find . -name 'example-service' -printf %h\\n | xargs -i{} mv {}/example-service {}/$project_name-service
-find . -name 'example-api' -printf %h\\n | xargs -i{} mv {}/example-api {}/$project_name-api
+mv example-server $project_name-server
+mv example-service $project_name-service
+mv example-api $project_name-api
 #packge
-find . -name 'example' -printf %h\\n | xargs -i{} mv {}/example {}/$project_name
+mv $project_name-api/src/main/java/com/funnyy/component/example $project_name-api/src/main/java/com/funnyy/component/$project_name
+mv $project_name-service/src/main/java/com/funnyy/component/example $project_name-service/src/main/java/com/funnyy/component/$project_name
+mv $project_name-server/src/main/java/com/funnyy/component/example $project_name-server/src/main/java/com/funnyy/component/$project_name
+mv $project_name-service/src/test/java/com/funnyy/component/example $project_name-service/src/test/java/com/funnyy/component/$project_name
+
 #conetent 
 sed -i '' "s/example/$project_name/g" `find . -name '*.properties'`
 sed -i '' "s/example/$project_name/g" `find . -name '*.java'`
