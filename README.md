@@ -6,6 +6,7 @@
 * git
 * maven
 * shell
+* mac(hahhhhh)
 
 ### 1.下载代码
 ```
